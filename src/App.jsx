@@ -3,6 +3,7 @@ import FeedbackOptions from 'components/FeedbackOptions/FeedbackOptions';
 import Statistics from 'components/Statistics/Statistics';
 import Section from 'components/Section/Section';
 import Notification from 'components/Notification/Notification';
+import css from './App.module.css';
 
 export class App extends Component {
   state = {
@@ -23,7 +24,7 @@ export class App extends Component {
     const positivePercentage =
       total === 0 ? 0 : `${Math.round((good / total) * 100)}`;
     return (
-      <>
+      <div className={css.container}>
         <Section title="Please leave feedback">
           <FeedbackOptions
             options={Object.keys(this.state)}
@@ -43,7 +44,7 @@ export class App extends Component {
             />
           </Section>
         )}
-      </>
+      </div>
     );
   }
 }
